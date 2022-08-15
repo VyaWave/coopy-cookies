@@ -1,0 +1,37 @@
+{
+	"manifest_version": 3,
+	"name": "复制cookie",
+	"version": "1.0",
+	"description": "把cookie复制到另一个地址",
+	"author": "wanggongcun",
+	"icons":
+	{
+		"48": "icon.png",
+		"128": "icon.png"
+	},
+	"browser_action":
+	{
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["js/content-script.js"],
+			"run_at": "document_start"
+		}
+	],
+	"web_accessible_resources": [
+		"inject.js"
+	],
+	"permissions": [
+        "tabs",
+        "\u003Call_urls\u003E",
+        "cookies",
+        "contextMenus",
+        "unlimitedStorage",
+        "notifications",
+        "storage",
+        "clipboardWrite"
+    ]
+}
